@@ -2,6 +2,7 @@ extends Node
 
 signal estado_cambiado(nuevoEstado:Estados)
 signal seleccion_cambiada(seleccion:Array)
+signal grafo_cambiado()
 
 enum Estados{
 	ESPERA,
@@ -17,6 +18,11 @@ enum Estados{
 var multigrafo=false
 var estado=Estados.ESPERA
 var seleccion:Array=[Node]
+var vertices=[]
+var aristas=[]
+
+func _init() -> void:
+	Globals.grafo=self
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
@@ -24,6 +30,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			var nuevoVertice=escenaVertice.instantiate()
 			add_child(nuevoVertice)
 			nuevoVertice.global_position=get_viewport().get_mouse_position()
+			vertices.append(nuevoVertice)
+			grafo_cambiado.emit()
 
 
 func _on_add_arista_pressed() -> void:
@@ -53,7 +61,9 @@ func limpiar_seleccion()->void:
 
 func vertice_seleccionado(vertice:Vertice):
 	if estado==Estados.QUITARVERTICE:
+		vertices.erase(vertice)
 		vertice.eliminar()
+		grafo_cambiado.emit()
 	if estado==Estados.ADDARISTA:
 		if seleccion.has(vertice):
 			seleccion.erase(vertice)
@@ -67,6 +77,8 @@ func vertice_seleccionado(vertice:Vertice):
 				var arista=escenaArista.instantiate()
 				add_child(arista)
 				arista.configurar(seleccion[0],seleccion[1])
+				aristas.append(arista)
+				grafo_cambiado.emit()
 			else:
 				ToastParty.show({"text":"Un grafo simple no puede tener dos aristas entre los mismos vertices","duration":2})
 			limpiar_seleccion()
@@ -74,3 +86,22 @@ func vertice_seleccionado(vertice:Vertice):
 
 func _on_multigrafo_toggled(toggled_on: bool) -> void:
 	multigrafo=toggled_on
+
+func obtener_componentes_conexos()->Array:
+	var componentes_conexos=[]
+	var vertices_por_explorar=vertices.duplicate()
+	while vertices_por_explorar.size()>0:
+		var vertice=vertices_por_explorar.pop_front()
+		var componente_conexo=[vertice]
+		añadir_vertice_y_vecinos_a_componente(vertice,componente_conexo)
+		for explorado in componente_conexo:
+			vertices_por_explorar.erase(explorado)
+		componentes_conexos.append(componente_conexo)
+	return componentes_conexos
+
+func añadir_vertice_y_vecinos_a_componente(vertice,componente_conexo):
+	for arista in vertice.aristas:
+		var opuesto=arista.opuesto(vertice)
+		if not componente_conexo.has(opuesto):
+			componente_conexo.append(opuesto)
+			añadir_vertice_y_vecinos_a_componente(opuesto,componente_conexo)

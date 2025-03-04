@@ -2,9 +2,11 @@ class_name Vertice
 extends Node
 
 var aristas=[]
+var nombre=""
 
 func _ready() -> void:
 	get_parent().seleccion_cambiada.connect(seleccion_cambiada)
+	nombre=str(get_index())
 
 func _on_seleccion_pressed() -> void:
 	get_parent().vertice_seleccionado(self)
@@ -16,7 +18,7 @@ func seleccion_cambiada(seleccion:Array) -> void:
 		$TickSeleccionado.hide()
 
 func eliminar() -> void:
-	for arista in aristas:
+	for arista in aristas.duplicate():
 		arista.eliminar()
 	queue_free()
 
@@ -32,3 +34,6 @@ func aristas_a(vertice:Vertice) -> Array:
 		if arista.inicio==vertice or arista.fin==vertice:
 			aristas_seleccionadas.append(arista)
 	return aristas_seleccionadas
+
+func colorear(color:Color) -> void:
+	$Sprite2D.modulate=color

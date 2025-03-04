@@ -2,6 +2,7 @@ extends Panel
 
 @onready var mundo = get_node("/root/World")
 
+
 func _on_world_estado_cambiado(nuevoEstado:int) -> void:
     if nuevoEstado!=mundo.Estados.ESPERA:
         $Herramientas.hide()

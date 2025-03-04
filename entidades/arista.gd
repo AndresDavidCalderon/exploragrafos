@@ -4,6 +4,7 @@ var inicio:Vertice
 var fin:Vertice
 
 func configurar(inicio_nuevo:Vertice,fin_nuevo:Vertice)->void:
+    # El inicio es siempre el de menor indice.
     inicio=inicio_nuevo if inicio_nuevo.get_index()<fin_nuevo.get_index() else fin_nuevo
     fin=fin_nuevo if inicio_nuevo.get_index()<fin_nuevo.get_index() else inicio_nuevo
     inicio.aristas.append(self)
@@ -32,4 +33,9 @@ func configurar(inicio_nuevo:Vertice,fin_nuevo:Vertice)->void:
 func eliminar()->void:
     inicio.aristas.erase(self)
     fin.aristas.erase(self)
+    var aristasTotales=get_parent().aristas
+    aristasTotales.erase(self)
     queue_free()
+
+func opuesto(vertice:Vertice):
+    return fin if inicio==vertice else inicio
