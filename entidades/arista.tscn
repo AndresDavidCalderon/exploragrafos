@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqqgkgi6it0ng"]
+
+[ext_resource type="Script" uid="uid://dqdtrvag8qky7" path="res://entidades/arista.gd" id="1_ekucw"]
+
+[node name="Arista" type="Node"]
+script = ExtResource("1_ekucw")
+
+[node name="Linea" type="Line2D" parent="."]
+width = 3.0

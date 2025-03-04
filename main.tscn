@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=3 uid="uid://bh0bqya2jla5j"]
+
+[ext_resource type="Script" uid="uid://dy6kysucj6gjc" path="res://world.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://ca0qb0ckmyho4" path="res://entidades/vertice.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://cqqgkgi6it0ng" path="res://entidades/arista.tscn" id="3_1bvp3"]
+[ext_resource type="Script" uid="uid://u5dovwfqvhxf" path="res://caja_herramientas.gd" id="3_h2yge"]
+
+[node name="World" type="Node"]
+script = ExtResource("1_ig7tw")
+escenaVertice = ExtResource("2_0xm2m")
+escenaArista = ExtResource("3_1bvp3")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Top" type="Panel" parent="UI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -260.0
+offset_top = 13.0
+offset_right = 262.0
+offset_bottom = 152.0
+grow_horizontal = 2
+script = ExtResource("3_h2yge")
+
+[node name="Herramientas" type="HBoxContainer" parent="UI/Top"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -243.0
+offset_top = 18.0
+offset_right = 244.0
+offset_bottom = 49.0
+grow_horizontal = 2
+
+[node name="AddArista" type="Button" parent="UI/Top/Herramientas"]
+layout_mode = 2
+text = "Añadir arista"
+
+[node name="AddVertice" type="Button" parent="UI/Top/Herramientas"]
+layout_mode = 2
+text = "Añadir vertice"
+
+[node name="QuitarArista" type="Button" parent="UI/Top/Herramientas"]
+layout_mode = 2
+text = "Eliminar arista"
+
+[node name="QuitarVertice" type="Button" parent="UI/Top/Herramientas"]
+layout_mode = 2
+text = "Eliminar vertice"
+
+[node name="Cancelar" type="Button" parent="UI/Top"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "cancelar"
+
+[node name="Multigrafo" type="CheckBox" parent="UI/Top"]
+layout_mode = 0
+offset_left = 213.0
+offset_top = 99.0
+offset_right = 237.0
+offset_bottom = 123.0
+text = "multigrafo"
+
+[connection signal="estado_cambiado" from="." to="UI/Top" method="_on_world_estado_cambiado"]
+[connection signal="pressed" from="UI/Top/Herramientas/AddArista" to="." method="_on_add_arista_pressed"]
+[connection signal="pressed" from="UI/Top/Herramientas/AddVertice" to="." method="_on_add_vertice_pressed"]
+[connection signal="pressed" from="UI/Top/Herramientas/QuitarVertice" to="." method="_on_quitar_vertice_pressed"]
+[connection signal="pressed" from="UI/Top/Cancelar" to="." method="_on_cancelar_pressed"]
+[connection signal="toggled" from="UI/Top/Multigrafo" to="." method="_on_multigrafo_toggled"]
