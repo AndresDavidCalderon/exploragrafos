@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bh0bqya2jla5j"]
+[gd_scene load_steps=10 format=3 uid="uid://bh0bqya2jla5j"]
 
 [ext_resource type="Script" uid="uid://dy6kysucj6gjc" path="res://world.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://ca0qb0ckmyho4" path="res://entidades/vertice.tscn" id="2_0xm2m"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://cn4si5v8371jp" path="res://estadisticas.gd" id="5_7mycd"]
 [ext_resource type="Script" uid="uid://bski57waoy50a" path="res://numero_cromatico.gd" id="5_lquwl"]
 [ext_resource type="Script" uid="uid://cajr0g7lxu1ws" path="res://euler.gd" id="7_272bh"]
+[ext_resource type="Script" uid="uid://b0rjr80e73k6x" path="res://hamilton.gd" id="8_5vw27"]
+[ext_resource type="Script" uid="uid://ywdyxqc080mr" path="res://planaridad.gd" id="9_kek77"]
 
 [node name="World" type="Node"]
 script = ExtResource("1_ig7tw")
@@ -107,7 +109,7 @@ anchor_bottom = 1.0
 offset_top = 35.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 2
+current_tab = 3
 
 [node name="Estadisticas" type="Control" parent="UI/Panel/TabContainer"]
 visible = false
@@ -147,6 +149,7 @@ grow_vertical = 2
 bbcode_enabled = true
 
 [node name="Euler" type="Control" parent="UI/Panel/TabContainer"]
+visible = false
 layout_mode = 2
 script = ExtResource("7_272bh")
 metadata/_tab_index = 2
@@ -163,8 +166,42 @@ offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(574, 323)
+[node name="Hamilton" type="Control" parent="UI/Panel/TabContainer"]
+layout_mode = 2
+script = ExtResource("8_5vw27")
+metadata/_tab_index = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Panel/TabContainer/Hamilton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = -8.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+
+[node name="Planaridad" type="Control" parent="UI/Panel/TabContainer"]
+visible = false
+layout_mode = 2
+script = ExtResource("9_kek77")
+metadata/_tab_index = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Panel/TabContainer/Planaridad"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = -8.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
 
 [connection signal="estado_cambiado" from="." to="UI/Top" method="_on_world_estado_cambiado"]
 [connection signal="pressed" from="UI/Top/Herramientas/AddArista" to="." method="_on_add_arista_pressed"]
