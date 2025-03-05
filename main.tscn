@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bh0bqya2jla5j"]
+[gd_scene load_steps=8 format=3 uid="uid://bh0bqya2jla5j"]
 
 [ext_resource type="Script" uid="uid://dy6kysucj6gjc" path="res://world.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://ca0qb0ckmyho4" path="res://entidades/vertice.tscn" id="2_0xm2m"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://u5dovwfqvhxf" path="res://caja_herramientas.gd" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://cn4si5v8371jp" path="res://estadisticas.gd" id="5_7mycd"]
 [ext_resource type="Script" uid="uid://bski57waoy50a" path="res://numero_cromatico.gd" id="5_lquwl"]
+[ext_resource type="Script" uid="uid://cajr0g7lxu1ws" path="res://euler.gd" id="7_272bh"]
 
 [node name="World" type="Node"]
 script = ExtResource("1_ig7tw")
@@ -106,9 +107,10 @@ anchor_bottom = 1.0
 offset_top = 35.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 0
+current_tab = 2
 
 [node name="Estadisticas" type="Control" parent="UI/Panel/TabContainer"]
+visible = false
 layout_mode = 2
 script = ExtResource("5_7mycd")
 metadata/_tab_index = 0
@@ -143,6 +145,23 @@ offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
+
+[node name="Euler" type="Control" parent="UI/Panel/TabContainer"]
+layout_mode = 2
+script = ExtResource("7_272bh")
+metadata/_tab_index = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Panel/TabContainer/Euler"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 4.0
+offset_right = -6.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(574, 323)
