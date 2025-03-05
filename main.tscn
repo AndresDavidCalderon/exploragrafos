@@ -109,7 +109,7 @@ anchor_bottom = 1.0
 offset_top = 35.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 3
+current_tab = 5
 
 [node name="Estadisticas" type="Control" parent="UI/Panel/TabContainer"]
 visible = false
@@ -167,6 +167,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Hamilton" type="Control" parent="UI/Panel/TabContainer"]
+visible = false
 layout_mode = 2
 script = ExtResource("8_5vw27")
 metadata/_tab_index = 3
@@ -203,9 +204,29 @@ grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
 
+[node name="Acerca de" type="Control" parent="UI/Panel/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Panel/TabContainer/Acerca de"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = -13.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "Este software fué hecho con amor por Andres David Calderón.
+Puedes ver mis otros proyectos en [url=pagina]mi pagina[/url]"
+
 [connection signal="estado_cambiado" from="." to="UI/Top" method="_on_world_estado_cambiado"]
 [connection signal="pressed" from="UI/Top/Herramientas/AddArista" to="." method="_on_add_arista_pressed"]
 [connection signal="pressed" from="UI/Top/Herramientas/AddVertice" to="." method="_on_add_vertice_pressed"]
 [connection signal="pressed" from="UI/Top/Herramientas/QuitarVertice" to="." method="_on_quitar_vertice_pressed"]
 [connection signal="pressed" from="UI/Top/Cancelar" to="." method="_on_cancelar_pressed"]
 [connection signal="toggled" from="UI/Top/Multigrafo" to="." method="_on_multigrafo_toggled"]
+[connection signal="meta_clicked" from="UI/Panel/TabContainer/Acerca de/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]

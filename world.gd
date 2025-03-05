@@ -150,3 +150,9 @@ func es_bipartito_completo():
 			if not azul.conectado_a(rojo):
 				return false
 	return true
+
+
+func _on_rich_text_label_meta_clicked(meta: Variant) -> void:
+	match meta:
+		"pagina":
+			OS.shell_open("https://andresdavidcalderon.github.io/")
