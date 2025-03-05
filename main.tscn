@@ -109,10 +109,9 @@ anchor_bottom = 1.0
 offset_top = 35.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 5
+current_tab = 0
 
 [node name="Estadisticas" type="Control" parent="UI/Panel/TabContainer"]
-visible = false
 layout_mode = 2
 script = ExtResource("5_7mycd")
 metadata/_tab_index = 0
@@ -205,6 +204,7 @@ grow_vertical = 2
 bbcode_enabled = true
 
 [node name="Acerca de" type="Control" parent="UI/Panel/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 5
 

@@ -10,13 +10,17 @@ func _ready() -> void:
 
 
 func actualizarContenido():
-    for vertice in Globals.grafo.vertices:
-        vertice.colorear(Color(1,1,1))
-        vertice.get_node("ErrorBipartito").hide()
+    if coloreado:
+        for vertice in Globals.grafo.vertices:
+            vertice.colorear(Color(1,1,1))
+            vertice.get_node("ErrorBipartito").hide()
     
     if visible:
         if Globals.grafo.es_bipartito():
             $RichTextLabel.text="El grafo es bipartito."
+            if Globals.grafo.es_bipartito_completo():
+                $RichTextLabel.text+="\nAdemás, es el bipartito completo K"+str(Globals.grafo.vertices_rojos.size())+","+str(Globals.grafo.vertices_azules.size())
+
         else:
             $RichTextLabel.text="El grafo no es bipartito."
         
