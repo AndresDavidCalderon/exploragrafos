@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 ToastParty="*res://addons/toastparty/toast-autoload.gd"
 Globals="*res://globals.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/toastparty/plugin.cfg")

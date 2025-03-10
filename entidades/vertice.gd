@@ -37,3 +37,12 @@ func aristas_a(vertice:Vertice) -> Array:
 
 func colorear(color:Color) -> void:
 	$Sprite2D.modulate=color
+
+func obtener_adyacentes() ->Array:
+	var adyacentes=[]
+	for arista in aristas:
+		var contrario=arista.contrario(self)
+		if not adyacentes.has(contrario):
+			adyacentes.append(contrario)
+	return adyacentes
+	
