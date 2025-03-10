@@ -28,6 +28,6 @@ func vertice_grado_menor_a_6():
 
 func son_vertices_de_triangulo(a:Vertice,b:Vertice):
 	for adyacente in a.obtener_adyacentes():
-	   if b.obtener_adyacentes().has(adyacente):
+		if b.obtener_adyacentes().has(adyacente):
 			return true
 	return false
