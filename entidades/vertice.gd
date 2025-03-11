@@ -41,7 +41,7 @@ func colorear(color:Color) -> void:
 func obtener_adyacentes() ->Array:
 	var adyacentes=[]
 	for arista in aristas:
-		var contrario=arista.contrario(self)
+		var contrario=arista.opuesto(self)
 		if not adyacentes.has(contrario):
 			adyacentes.append(contrario)
 	return adyacentes
