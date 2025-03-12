@@ -13,7 +13,9 @@ config_version=5
 config/name="exploragrafos"
 run/main_scene="uid://bh0bqya2jla5j"
 config/features=PackedStringArray("4.4", "Mobile")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="uid://ddlc7y5p3m8c3"
+config/icon="uid://stcdqhs8ynks"
 
 [autoload]
 
@@ -22,7 +24,7 @@ Globals="*res://globals.gd"
 
 [display]
 
-window/stretch/mode="canvas_items"
+window/stretch/scale=0.8
 
 [editor_plugins]
 
@@ -33,3 +35,4 @@ enabled=PackedStringArray("res://addons/toastparty/plugin.cfg")
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

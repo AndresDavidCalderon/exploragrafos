@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bh0bqya2jla5j"]
+[gd_scene load_steps=11 format=3 uid="uid://bh0bqya2jla5j"]
 
 [ext_resource type="Script" uid="uid://dy6kysucj6gjc" path="res://world.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://ca0qb0ckmyho4" path="res://entidades/vertice.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://cqqgkgi6it0ng" path="res://entidades/arista.tscn" id="3_1bvp3"]
 [ext_resource type="Script" uid="uid://u5dovwfqvhxf" path="res://caja_herramientas.gd" id="3_h2yge"]
+[ext_resource type="Theme" uid="uid://cqg3er0rb3j23" path="res://main.tres" id="4_4c57u"]
 [ext_resource type="Script" uid="uid://cn4si5v8371jp" path="res://estadisticas.gd" id="5_7mycd"]
 [ext_resource type="Script" uid="uid://bski57waoy50a" path="res://numero_cromatico.gd" id="5_lquwl"]
 [ext_resource type="Script" uid="uid://cajr0g7lxu1ws" path="res://euler.gd" id="7_272bh"]
@@ -18,14 +19,17 @@ escenaArista = ExtResource("3_1bvp3")
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Top" type="Panel" parent="UI"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -260.0
-offset_top = 5.0
-offset_right = 262.0
-offset_bottom = 144.0
+anchors_preset = -1
+anchor_left = 0.396
+anchor_top = 0.008
+anchor_right = 0.602
+anchor_bottom = 0.052
+offset_left = -141.192
+offset_top = -5.184
+offset_right = 143.496
+offset_bottom = 105.304
 grow_horizontal = 2
+theme = ExtResource("4_4c57u")
 script = ExtResource("3_h2yge")
 
 [node name="Herramientas" type="HBoxContainer" parent="UI/Top"]
@@ -37,6 +41,7 @@ offset_top = 14.0
 offset_right = 242.0
 offset_bottom = 45.0
 grow_horizontal = 2
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="AddArista" type="Button" parent="UI/Top/Herramientas"]
@@ -59,8 +64,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -37.0
+offset_top = -11.5
 offset_right = 37.0
-offset_bottom = 31.0
+offset_bottom = 19.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "cancelar"
@@ -71,21 +77,23 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -55.0
-offset_top = -31.0
-offset_right = 55.0
+offset_left = -54.0
+offset_top = -42.0
+offset_right = 56.0
+offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "multigrafo"
 
 [node name="Panel" type="Panel" parent="UI"]
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = -1
+anchor_top = 0.955
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -196.0
+offset_top = -166.84
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("4_4c57u")
 
 [node name="Title" type="Label" parent="UI/Panel"]
 layout_mode = 1
