@@ -37,6 +37,7 @@ offset_top = 14.0
 offset_right = 242.0
 offset_bottom = 45.0
 grow_horizontal = 2
+alignment = 1
 
 [node name="AddArista" type="Button" parent="UI/Top/Herramientas"]
 layout_mode = 2
@@ -45,10 +46,6 @@ text = "Añadir arista"
 [node name="AddVertice" type="Button" parent="UI/Top/Herramientas"]
 layout_mode = 2
 text = "Añadir vertice"
-
-[node name="QuitarArista" type="Button" parent="UI/Top/Herramientas"]
-layout_mode = 2
-text = "Eliminar arista"
 
 [node name="QuitarVertice" type="Button" parent="UI/Top/Herramientas"]
 layout_mode = 2

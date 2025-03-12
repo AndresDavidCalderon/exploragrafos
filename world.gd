@@ -18,7 +18,7 @@ enum Estados{
 var multigrafo=false
 var estado=Estados.ESPERA
 var seleccion:Array=[Node]
-var vertices=[]
+var vertices:Array[Vertice]=[]
 var aristas=[]
 
 # Solo actualizados al llamar es_bipartito
@@ -30,7 +30,7 @@ func _init() -> void:
 	Globals.grafo=self
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.is_pressed():
+	if event is InputEventMouseButton and event.is_pressed() and event.button_index==MOUSE_BUTTON_LEFT:
 		if estado==Estados.ADDVERTICE:
 			var nuevoVertice=escenaVertice.instantiate()
 			add_child(nuevoVertice)
@@ -88,8 +88,8 @@ func _on_multigrafo_toggled(toggled_on: bool) -> void:
 	multigrafo=toggled_on
 
 func obtener_componentes_conexos()->Array:
-	var componentes_conexos=[]
-	var vertices_por_explorar=vertices.duplicate()
+	var componentes_conexos:Array=[]
+	var vertices_por_explorar:Array[Vertice]=vertices.duplicate()
 	while vertices_por_explorar.size()>0:
 		var vertice=vertices_por_explorar.pop_front()
 		var componente_conexo=[vertice]
@@ -98,6 +98,14 @@ func obtener_componentes_conexos()->Array:
 			vertices_por_explorar.erase(explorado)
 		componentes_conexos.append(componente_conexo)
 	return componentes_conexos
+
+func aristas_de_componente_conexo(componente_conexo):
+	var aristas_de_componente=[]
+	for vertice in componente_conexo:
+		for arista in vertice.aristas:
+			if not aristas_de_componente.has(arista):
+				aristas_de_componente.append(arista)
+	return aristas_de_componente
 
 func añadir_vertice_y_vecinos_a_componente(vertice,componente_conexo):
 	for arista in vertice.aristas:
