@@ -3,5 +3,7 @@ extends Node
 var grafo
 
 func _ready() -> void:
-    if OS.get_name()=="Android":
-        load("res://main.tres").default_font_size=20
+	var dpi=DisplayServer.screen_get_dpi()
+	if dpi>100:
+		var escala=dpi/300.0
+		get_tree().root.content_scale_factor=escala
