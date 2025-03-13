@@ -34,7 +34,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if estado==Estados.ADDVERTICE:
 			var nuevoVertice=escenaVertice.instantiate()
 			add_child(nuevoVertice)
-			nuevoVertice.global_position=get_viewport().get_mouse_position()
+			nuevoVertice.global_position=$Camera.get_global_mouse_position()
 			vertices.append(nuevoVertice)
 			grafo_cambiado.emit()
 

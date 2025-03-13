@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bh0bqya2jla5j"]
+[gd_scene load_steps=12 format=3 uid="uid://bh0bqya2jla5j"]
 
 [ext_resource type="Script" uid="uid://dy6kysucj6gjc" path="res://world.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://ca0qb0ckmyho4" path="res://entidades/vertice.tscn" id="2_0xm2m"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://cajr0g7lxu1ws" path="res://euler.gd" id="7_272bh"]
 [ext_resource type="Script" uid="uid://b0rjr80e73k6x" path="res://hamilton.gd" id="8_5vw27"]
 [ext_resource type="Script" uid="uid://ywdyxqc080mr" path="res://planaridad.gd" id="9_kek77"]
+[ext_resource type="Script" uid="uid://d3rgcmcg5xbrs" path="res://camera.gd" id="11_efxa6"]
 
 [node name="World" type="Node"]
 script = ExtResource("1_ig7tw")
@@ -230,6 +231,11 @@ grow_vertical = 2
 bbcode_enabled = true
 text = "Este software fué hecho con amor por Andres David Calderón.
 Puedes ver mis otros proyectos en [url=pagina]mi pagina[/url]"
+
+[node name="Camera" type="Camera2D" parent="."]
+anchor_mode = 0
+script = ExtResource("11_efxa6")
+velocidad_zoom = 0.85
 
 [connection signal="estado_cambiado" from="." to="UI/Top" method="_on_world_estado_cambiado"]
 [connection signal="pressed" from="UI/Top/Herramientas/AddArista" to="." method="_on_add_arista_pressed"]

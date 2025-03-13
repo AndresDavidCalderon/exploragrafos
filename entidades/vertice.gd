@@ -7,6 +7,9 @@ var nombre=""
 func _ready() -> void:
 	get_parent().seleccion_cambiada.connect(seleccion_cambiada)
 	nombre=str(get_index())
+	if OS.get_name()=="Android":
+		$Seleccion.size=Vector2(50,50)
+		$Seleccion.position=Vector2(-25,-25)
 
 func _on_seleccion_pressed() -> void:
 	get_parent().vertice_seleccionado(self)
