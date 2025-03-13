@@ -85,6 +85,9 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "multigrafo"
 
+[node name="VerificarMargen" type="Timer" parent="UI/Top"]
+autostart = true
+
 [node name="Panel" type="Panel" parent="UI"]
 anchors_preset = -1
 anchor_top = 0.955
@@ -234,4 +237,5 @@ Puedes ver mis otros proyectos en [url=pagina]mi pagina[/url]"
 [connection signal="pressed" from="UI/Top/Herramientas/QuitarVertice" to="." method="_on_quitar_vertice_pressed"]
 [connection signal="pressed" from="UI/Top/Cancelar" to="." method="_on_cancelar_pressed"]
 [connection signal="toggled" from="UI/Top/Multigrafo" to="." method="_on_multigrafo_toggled"]
+[connection signal="timeout" from="UI/Top/VerificarMargen" to="UI/Top" method="_on_verificar_margen_timeout"]
 [connection signal="meta_clicked" from="UI/Panel/TabContainer/Acerca de/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]
