@@ -57,9 +57,11 @@ bg_color = Color(0.0605303, 0.0605304, 0.0605303, 0.34902)
 bg_color = Color(0.147672, 0.147672, 0.147672, 1)
 
 [resource]
+default_font_size = 29
 Button/styles/hover = SubResource("StyleBoxFlat_efxa6")
 Button/styles/normal = SubResource("StyleBoxFlat_4c57u")
 Button/styles/pressed = SubResource("StyleBoxFlat_dg77c")
 CheckBox/styles/hover = SubResource("StyleBoxFlat_ci82a")
 CheckBox/styles/normal = SubResource("StyleBoxEmpty_ycdy4")
+FlowContainer/constants/h_separation = 15
 Panel/styles/panel = SubResource("StyleBoxFlat_kek77")

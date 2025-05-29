@@ -164,3 +164,9 @@ func _on_rich_text_label_meta_clicked(meta: Variant) -> void:
 	match meta:
 		"pagina":
 			OS.shell_open("https://andresdavidcalderon.github.io/")
+
+
+func _on_menu_pressed() -> void:
+	Globals.grafo.cambiar_estado(Estados.ESPERA)
+	Globals.grafo.limpiar_seleccion()
+	Globals.grafo.get_tree().change_scene_to_file("res://main_menu.tscn")

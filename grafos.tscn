@@ -1,21 +1,21 @@
 [gd_scene load_steps=12 format=3 uid="uid://bh0bqya2jla5j"]
 
-[ext_resource type="Script" uid="uid://dy6kysucj6gjc" path="res://world.gd" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://ca0qb0ckmyho4" path="res://entidades/vertice.tscn" id="2_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://cqqgkgi6it0ng" path="res://entidades/arista.tscn" id="3_1bvp3"]
-[ext_resource type="Script" uid="uid://u5dovwfqvhxf" path="res://caja_herramientas.gd" id="3_h2yge"]
-[ext_resource type="Theme" uid="uid://cqg3er0rb3j23" path="res://main.tres" id="4_4c57u"]
-[ext_resource type="Script" uid="uid://cn4si5v8371jp" path="res://estadisticas.gd" id="5_7mycd"]
-[ext_resource type="Script" uid="uid://bski57waoy50a" path="res://numero_cromatico.gd" id="5_lquwl"]
-[ext_resource type="Script" uid="uid://cajr0g7lxu1ws" path="res://euler.gd" id="7_272bh"]
-[ext_resource type="Script" uid="uid://b0rjr80e73k6x" path="res://hamilton.gd" id="8_5vw27"]
-[ext_resource type="Script" uid="uid://ywdyxqc080mr" path="res://planaridad.gd" id="9_kek77"]
-[ext_resource type="Script" uid="uid://d3rgcmcg5xbrs" path="res://camera.gd" id="11_efxa6"]
+[ext_resource type="Script" uid="uid://dy6kysucj6gjc" path="res://world.gd" id="1_jc6b2"]
+[ext_resource type="PackedScene" uid="uid://ca0qb0ckmyho4" path="res://entidades/vertice.tscn" id="2_oxl10"]
+[ext_resource type="PackedScene" uid="uid://cqqgkgi6it0ng" path="res://entidades/arista.tscn" id="3_0ewb0"]
+[ext_resource type="Theme" uid="uid://cqg3er0rb3j23" path="res://main.tres" id="4_vgllc"]
+[ext_resource type="Script" uid="uid://u5dovwfqvhxf" path="res://caja_herramientas.gd" id="5_jrslh"]
+[ext_resource type="Script" uid="uid://cn4si5v8371jp" path="res://estadisticas.gd" id="6_4etkf"]
+[ext_resource type="Script" uid="uid://bski57waoy50a" path="res://numero_cromatico.gd" id="7_wkawa"]
+[ext_resource type="Script" uid="uid://cajr0g7lxu1ws" path="res://euler.gd" id="8_iciv1"]
+[ext_resource type="Script" uid="uid://b0rjr80e73k6x" path="res://hamilton.gd" id="9_6f8md"]
+[ext_resource type="Script" uid="uid://ywdyxqc080mr" path="res://planaridad.gd" id="10_higf7"]
+[ext_resource type="Script" uid="uid://d3rgcmcg5xbrs" path="res://camera.gd" id="11_b5es7"]
 
 [node name="World" type="Node"]
-script = ExtResource("1_ig7tw")
-escenaVertice = ExtResource("2_0xm2m")
-escenaArista = ExtResource("3_1bvp3")
+script = ExtResource("1_jc6b2")
+escenaVertice = ExtResource("2_oxl10")
+escenaArista = ExtResource("3_0ewb0")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -25,13 +25,13 @@ anchor_left = 0.396
 anchor_top = 0.008
 anchor_right = 0.602
 anchor_bottom = 0.052
-offset_left = -141.192
-offset_top = -5.184
-offset_right = 143.496
-offset_bottom = 105.304
+offset_left = -251.0
+offset_top = -5.2
+offset_right = 241.6
+offset_bottom = 105.2
 grow_horizontal = 2
-theme = ExtResource("4_4c57u")
-script = ExtResource("3_h2yge")
+theme = ExtResource("4_vgllc")
+script = ExtResource("5_jrslh")
 
 [node name="Herramientas" type="HBoxContainer" parent="UI/Top"]
 layout_mode = 2
@@ -90,14 +90,16 @@ text = "multigrafo"
 autostart = true
 
 [node name="Panel" type="Panel" parent="UI"]
-anchors_preset = -1
-anchor_top = 0.955
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -166.84
+offset_left = -2.0
+offset_top = -249.0
+offset_right = -2.0
 grow_horizontal = 2
 grow_vertical = 0
-theme = ExtResource("4_4c57u")
+theme = ExtResource("4_vgllc")
 
 [node name="Title" type="Label" parent="UI/Panel"]
 layout_mode = 1
@@ -118,11 +120,12 @@ anchor_bottom = 1.0
 offset_top = 35.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 0
+current_tab = 5
 
 [node name="Estadisticas" type="Control" parent="UI/Panel/TabContainer"]
+visible = false
 layout_mode = 2
-script = ExtResource("5_7mycd")
+script = ExtResource("6_4etkf")
 metadata/_tab_index = 0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI/Panel/TabContainer/Estadisticas"]
@@ -140,7 +143,7 @@ grow_vertical = 2
 [node name="NumeroCromatico" type="Control" parent="UI/Panel/TabContainer"]
 visible = false
 layout_mode = 2
-script = ExtResource("5_lquwl")
+script = ExtResource("7_wkawa")
 metadata/_tab_index = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI/Panel/TabContainer/NumeroCromatico"]
@@ -159,7 +162,7 @@ bbcode_enabled = true
 [node name="Euler" type="Control" parent="UI/Panel/TabContainer"]
 visible = false
 layout_mode = 2
-script = ExtResource("7_272bh")
+script = ExtResource("8_iciv1")
 metadata/_tab_index = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI/Panel/TabContainer/Euler"]
@@ -177,7 +180,7 @@ grow_vertical = 2
 [node name="Hamilton" type="Control" parent="UI/Panel/TabContainer"]
 visible = false
 layout_mode = 2
-script = ExtResource("8_5vw27")
+script = ExtResource("9_6f8md")
 metadata/_tab_index = 3
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI/Panel/TabContainer/Hamilton"]
@@ -196,7 +199,7 @@ bbcode_enabled = true
 [node name="Planaridad" type="Control" parent="UI/Panel/TabContainer"]
 visible = false
 layout_mode = 2
-script = ExtResource("9_kek77")
+script = ExtResource("10_higf7")
 metadata/_tab_index = 4
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI/Panel/TabContainer/Planaridad"]
@@ -213,28 +216,27 @@ grow_vertical = 2
 bbcode_enabled = true
 
 [node name="Acerca de" type="Control" parent="UI/Panel/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 5
 
-[node name="RichTextLabel" type="RichTextLabel" parent="UI/Panel/TabContainer/Acerca de"]
+[node name="Menu" type="Button" parent="UI/Panel/TabContainer/Acerca de"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 8.0
-offset_right = -13.0
-offset_bottom = -8.0
-grow_horizontal = 2
-grow_vertical = 2
-bbcode_enabled = true
-text = "Este software fué hecho con amor por Andres David Calderón.
-Puedes ver mis otros proyectos en [url=pagina]mi pagina[/url]"
+offset_left = -225.0
+offset_top = -64.0
+offset_right = -15.0
+offset_bottom = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "volver al menú"
 
 [node name="Camera" type="Camera2D" parent="."]
 anchor_mode = 0
-script = ExtResource("11_efxa6")
+script = ExtResource("11_b5es7")
 velocidad_zoom = 0.85
 
 [connection signal="estado_cambiado" from="." to="UI/Top" method="_on_world_estado_cambiado"]
@@ -244,4 +246,4 @@ velocidad_zoom = 0.85
 [connection signal="pressed" from="UI/Top/Cancelar" to="." method="_on_cancelar_pressed"]
 [connection signal="toggled" from="UI/Top/Multigrafo" to="." method="_on_multigrafo_toggled"]
 [connection signal="timeout" from="UI/Top/VerificarMargen" to="UI/Top" method="_on_verificar_margen_timeout"]
-[connection signal="meta_clicked" from="UI/Panel/TabContainer/Acerca de/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]
+[connection signal="pressed" from="UI/Panel/TabContainer/Acerca de/Menu" to="." method="_on_menu_pressed"]

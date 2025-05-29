@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw4n0g4hedf8s"]
+
+[ext_resource type="Theme" uid="uid://cqg3er0rb3j23" path="res://main.tres" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://dpvyxvkjgdc78" path="res://main_menu.gd" id="2_7vrkn"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_06t4h")
+script = ExtResource("2_7vrkn")
+
+[node name="FlowContainer" type="FlowContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = 76.0
+offset_right = -26.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Grafos" type="Button" parent="FlowContainer"]
+layout_mode = 2
+text = "Grafos"
+
+[node name="Arboles" type="Button" parent="FlowContainer"]
+layout_mode = 2
+text = "Arboles de sintaxis"
+
+[node name="Arboles2" type="Button" parent="FlowContainer"]
+layout_mode = 2
+text = "Algebra lineal"
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_top = 20.0
+offset_right = 162.0
+offset_bottom = 60.0
+grow_horizontal = 2
+text = "¿Que quieres explorar?"
+
+[connection signal="pressed" from="FlowContainer/Grafos" to="." method="_on_grafos_pressed"]
