@@ -3,6 +3,9 @@ extends Node
 
 var aristas=[]
 var nombre=""
+var inspector_properties={
+	"label":{"value":"","type":"string"}
+}
 
 func _ready() -> void:
 	get_parent().seleccion_cambiada.connect(seleccion_cambiada)
@@ -12,7 +15,10 @@ func _ready() -> void:
 		$Seleccion.position=Vector2(-25,-25)
 
 func _on_seleccion_pressed() -> void:
-	get_parent().vertice_seleccionado(self)
+	if Input.is_action_pressed("hold_n_inspect"):
+		Globals.general_inspector.inspect(self)
+	else:
+		get_parent().vertice_seleccionado(self)
 
 func seleccion_cambiada(seleccion:Array) -> void:
 	if seleccion.has(self):
