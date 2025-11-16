@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bt5yjgqov8pt1"]
+
+[node name="HBox" type="HBoxContainer"]
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "label"

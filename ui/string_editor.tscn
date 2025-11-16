@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2ruyc8nt75ra"]
+
+[ext_resource type="Script" uid="uid://i86gw2rvlrof" path="res://ui/string_editor.gd" id="1_g4ok1"]
+
+[node name="StringEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -883.0
+offset_bottom = -853.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g4ok1")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_right = 171.0
+offset_bottom = 31.0
+text = "STRING AQUI"
+
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
